@@ -13,8 +13,7 @@ class Converter extends Component {
 
 change = e => {
   this.setState({
-    stringMd: e.target.value,
-    stringhtml: convertToHTML(this.state.stringMd)
+    stringhtml: convertToHTML(e.target.value)
   })
 }
 
@@ -23,7 +22,7 @@ change = e => {
       <div>
         <form>
           <textarea  id="markdown" name="markdown" rows="15" cols="33"  onChange={this.change}></textarea>
-          <textarea id="html" name="html" value={this.state.stringhtml} rows="15" cols="33"></textarea>
+          <textarea id="html" name="html" value={this.state.stringhtml} readOnly rows="15" cols="33"></textarea>
         </form>
       </div>
     )
