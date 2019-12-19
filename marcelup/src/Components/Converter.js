@@ -13,13 +13,22 @@ class Converter extends Component {
       result: ''
     };
   }
-  insertText = (textToInsert) => {
+  insertTextOne = (textToInsert) => {
     const cursorPosition = this.myRef.current.selectionStart;
     const currentText = this.state.inputText;
     const textBeforeCursorPosition = currentText.substring(0, cursorPosition);
     const textAfterCursorPosition = currentText.substring(cursorPosition, currentText.length);
     this.updateState(textBeforeCursorPosition + textToInsert + textAfterCursorPosition);
   };
+
+  insertTextTwo = (textToInsert) => {
+    const cursorPosition = this.myRef.current.selectionStart;
+    const currentText = this.state.inputText;
+    const textBeforeCursorPosition = currentText.substring(0, cursorPosition);
+    const textAfterCursorPosition = currentText.substring(cursorPosition, currentText.length);
+    this.updateState(textBeforeCursorPosition + textToInsert + textAfterCursorPosition + textToInsert);
+  };
+
   updateState = (newText) => {
     const result = md.render(newText);
     this.setState({
@@ -54,10 +63,10 @@ class Converter extends Component {
             cols="33"
           ></textarea>
         </form>
-        <button type="button" onClick={ () => this.insertText('# \n') }>T1</button>
-        <button type="button" onClick={ () => this.insertText('## \n') }>T2</button>
-        <button type="button" onClick={ () => this.insertText('**\n') }>B</button>
-        <button type="button" onClick={ () => this.insertText('_\n') }>I</button>
+        <button type="button" onClick={ () => this.insertTextOne('# ') }>T1</button>
+        <button type="button" onClick={ () => this.insertTextOne('## ') }>T2</button>
+        <button type="button" onClick={ () => this.insertTextTwo('**') }>B</button>
+        <button type="button" onClick={ () => this.insertTextTwo('_') }>I</button>
       </div>
     );
   }
