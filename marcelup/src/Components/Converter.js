@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import './Converter.css';
 
 const MarkdownIt = require('markdown-it');
 const md = new MarkdownIt();
@@ -23,19 +24,21 @@ class Converter extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="convert">
+          <label for="markdown">Start writing in Markdown :</label>
           <textarea
+            className="textMark"
             id="markdown"
             name="markdown"
-            rows="15"
             onChange={this.change}
           ></textarea>
+          <label for="html">Converted in HTML :</label>
           <textarea
+            className="textHtml"
             id="html"
             name="html"
             value={this.state.result}
             readOnly
-            rows="15"
           ></textarea>
         </form>
       </div>
