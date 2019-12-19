@@ -34,29 +34,31 @@ class Converter extends Component {
 
   render() {
     return (
-      <form>
+      <div>
+        <form>
+          <textarea
+            ref={this.myRef}
+            id="markdown"
+            name="markdown"
+            rows="15"
+            cols="33"
+            value={this.state.inputText}
+            onChange={this.updateChange}
+          ></textarea>
+          <textarea
+            id="html"
+            name="html"
+            value={this.state.result}
+            readOnly
+            rows="15"
+            cols="33"
+          ></textarea>
+        </form>
         <button type="button" onClick={ () => this.insertText('# \n') }>T1</button>
         <button type="button" onClick={ () => this.insertText('## \n') }>T2</button>
         <button type="button" onClick={ () => this.insertText('**\n') }>B</button>
         <button type="button" onClick={ () => this.insertText('_\n') }>I</button>
-        <textarea
-          ref={this.myRef}
-          id="markdown"
-          name="markdown"
-          rows="15"
-          cols="33"
-          value={this.state.inputText}
-          onChange={this.updateChange}
-        ></textarea>
-        <textarea
-          id="html"
-          name="html"
-          value={this.state.result}
-          readOnly
-          rows="15"
-          cols="33"
-        ></textarea>
-      </form>
+      </div>
     );
   }
 }
