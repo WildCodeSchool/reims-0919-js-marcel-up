@@ -28,7 +28,6 @@ class Converter extends Component {
             id="markdown"
             name="markdown"
             rows="15"
-            cols="33"
             onChange={this.change}
           ></textarea>
           <textarea
@@ -37,7 +36,6 @@ class Converter extends Component {
             value={this.state.result}
             readOnly
             rows="15"
-            cols="33"
           ></textarea>
         </form>
       </div>
