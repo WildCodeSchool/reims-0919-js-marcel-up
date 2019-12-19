@@ -37,7 +37,7 @@ class Converter extends Component {
     });
   };
 
-  updateChange = e => {
+  change = e => {
     this.updateState(e.target.value);
   };
 
@@ -52,7 +52,7 @@ class Converter extends Component {
             rows="15"
             cols="33"
             value={this.state.inputText}
-            onChange={this.updateChange}
+            onChange={this.change}
           ></textarea>
           <textarea
             id="html"
