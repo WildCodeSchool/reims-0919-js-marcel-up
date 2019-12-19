@@ -1,25 +1,37 @@
 import React from 'react';
 import { Component } from 'react';
 
+
 const MarkdownIt = require('markdown-it');
 const md = new MarkdownIt();
+
 
 class Converter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: ''
+      result: '',
+      count:  0
     };
+    this.nbOfWords = this.nbOfWords.bind(this);
   }
 
   change = e => {
     let text = e.target.value;
     let result = md.render(text);
     this.setState({
-      result: result
+      result
     });
   };
-
+  
+   nbOfWords() {
+    let table = this.state.result.split(/[.|,|?|!|;|#|*|-|' ']/g)
+    let count = table.length 
+    this.setState({
+      count
+    })  
+  }
+  
   render() {
     return (
       <div>
@@ -40,6 +52,8 @@ class Converter extends Component {
             cols="33"
           ></textarea>
         </form>
+        <button onClick={this.nbOfWords}>count</button>
+        <p>{this.state.count}</p>
       </div>
     );
   }
