@@ -45,21 +45,29 @@
 }
 
 .buttonCount button {
-  width: 5%;
   height: 3vw;
-  font-size: 18px;
-  border-radius: 10px;
-  box-shadow: 3px 2px 1px grey;
 }
 
 .divButton {
-  width: 50%;
+  display: flex;
+  justify-content: left;
+  margin-left: 30%;
+  width: 100%;
 }
 
 .divButton button {
-  margin: 8px;
-  border-radius: 10px;
-  box-shadow: 3px 2px 1px grey;
-  height: 2%;
-  width: 4%;
+  margin: 4px;
+  height: 8%;
+  width: 6%;
+}
+
+.link {
+  float: right;
+  width: 20%;
+  padding-top: 3px;
+}
+
+.href {
+  color: black;
+  font-size: 20px;
 }
