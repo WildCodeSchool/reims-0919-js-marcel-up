@@ -33,6 +33,7 @@ class Converter extends Component {
     const cursorPosition = this.myRef.current.selectionStart;
     const currentText = this.state.inputText;
     const textBeforeCursorPosition = currentText.substring(0, cursorPosition);
+
     const textAfterCursorPosition = currentText.substring(
       cursorPosition,
       currentText.length
@@ -43,6 +44,10 @@ class Converter extends Component {
         textAfterCursorPosition +
         textToInsert
     );
+
+    const textAfterCursorPosition = currentText.substring(this.myRef.current.selectionEnd, currentText.length);
+    const selectedText = currentText.substring(this.myRef.current.selectionStart, this.myRef.current.selectionEnd)
+    this.updateState(textBeforeCursorPosition + textToInsert + selectedText + textToInsert + textAfterCursorPosition);
   };
 
   updateState = newText => {
@@ -108,6 +113,7 @@ class Converter extends Component {
           <p>{this.state.count}</p>
         </div>
       </div>
+      
     );
   }
 }
