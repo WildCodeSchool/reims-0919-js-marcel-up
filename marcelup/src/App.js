@@ -1,16 +1,23 @@
 import React from 'react';
-import ScrollUpButton from "react-scroll-up-button";
+import { Route, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import './App.css';
+import EnterButton from './Components/EnterButton';
 import Converter from './Components/Converter';
 
 
 function App() {
   return (
-    <div className="App">
-      <Converter />
-      <ScrollUpButton />
+    <BrowserRouter>
+    <header >
+      <img src='logo192.png' alt='logo'/>
+    </header>
+    <Switch>
+      <Route path="/converter" component={Converter} />
+      <Route exact path="/" exact component={EnterButton} />
 
-    </div>
+    </Switch>
+  </BrowserRouter> 
   );
 }
 
