@@ -44,10 +44,6 @@ class Converter extends Component {
         textAfterCursorPosition +
         textToInsert
     );
-
-    const textAfterCursorPosition = currentText.substring(this.myRef.current.selectionEnd, currentText.length);
-    const selectedText = currentText.substring(this.myRef.current.selectionStart, this.myRef.current.selectionEnd)
-    this.updateState(textBeforeCursorPosition + textToInsert + selectedText + textToInsert + textAfterCursorPosition);
   };
 
   updateState = newText => {
@@ -88,6 +84,9 @@ class Converter extends Component {
             <button type="button" onClick={() => this.insertTextTwo('_')}>
               I
             </button>
+            <div className="link">
+            <a className="href" href="https://docs.microsoft.com/fr-fr/contribute/how-to-write-use-markdown" > Doc Markdown </a>
+            </div>
           </div>
           <textarea
             className="textMark"
